@@ -189,8 +189,8 @@ async fn match_announce(current_match_id: &mut i64, client: &webhook::client::We
         msg = msg.embed(|mut embed| {
             embed = embed.author(
                 guild_name,
-                Some(format!("https://stratz.com/guilds/{guild_id}")),
-                Some(format!("https://steamusercontent-a.akamaihd.net/ugc/{guild_logo}/")),
+                Some(format!("https://stratz.com/guilds/{}", &guild_id)),
+                Some(format!("https://steamusercontent-a.akamaihd.net/ugc/{}/", &guild_logo)),
             );
             embed = embed.title(&*format!(
                 "{} · {} · {}",
