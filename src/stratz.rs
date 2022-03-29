@@ -45,9 +45,15 @@ pub async fn fetch_matches(client: reqwest::Client, guild_id: i64, take: i64) ->
     trace!("Building query...");
     let body = MatchesQuery::build_query(vars);
     trace!("Posting request...");
-    let resp = client.post(api_url()).json(&body).send().await.map_err(|_| StratzError::Request)?;
+    let resp = client.post(api_url()).json(&body).send().await.map_err(|err| {
+        error!("Error while performing request: {:#?}", &err);
+        StratzError::Request
+    })?;
     trace!("Parsing response...");
-    let data = resp.json::<Response>().await.map_err(|_| StratzError::Parse)?;
+    let data = resp.json::<Response>().await.map_err(|err| {
+        error!("Error while parsing response: {:#?}", &err);
+        StratzError::Parse
+    })?;
     trace!("Successfully parsed response!");
 
     Ok(data)
