@@ -126,7 +126,7 @@ async fn match_announce(current_match_id: &mut i64, client: &webhook::client::We
     trace!("Determining duration string...");
     let mins = duration.num_seconds() / 60;
     let secs = duration.num_seconds() % 60;
-    let duration_field = format!("{}:{}", &mins, &secs);
+    let duration_field = format!("{}:{:02}", &mins, &secs);
 
     trace!("Determining match result...");
     let mut is_victory: bool = false;
