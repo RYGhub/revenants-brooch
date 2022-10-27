@@ -104,7 +104,7 @@ async fn match_announce(current_match_id: &mut i64, client: &webhook::client::We
     let players: Vec<Option<stratz::Player>> = match_.players.ok_or_else(|| RefreshError::Data)?;
 
     if players.len() < MATCH_ANNOUNCE_PLAYERS {
-        trace!("Skipping announcement of {id}, as it was already announced.");
+        trace!("Skipping announcement of {id}, as it does not have enough players.");
         return Ok(())
     }
 
