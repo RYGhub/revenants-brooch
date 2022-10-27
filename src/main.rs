@@ -244,10 +244,10 @@ async fn match_announce(current_match_id: &mut i64, client: &webhook::client::We
                 }
             ));
             embed = embed.color(&*match match_result {
-                MatchResult::None => format!("{}", 0x5865F2),
-                MatchResult::Victory => format!("{}", 0x57F287),
-                MatchResult::Defeat => format!("{}", 0xED4245),
-                MatchResult::Both => format!("{}", 0xFEE75C),
+                MatchResult::None => format!("{}", 0xA1A1A1),
+                MatchResult::Victory => format!("{}", 0x2ACB4F),
+                MatchResult::Defeat => format!("{}", 0xEC041F),
+                MatchResult::Both => format!("{}", 0xA1A1A1),
             });
 
             if radiant_field.len() > 0 {
