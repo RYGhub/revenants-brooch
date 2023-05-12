@@ -27,6 +27,6 @@ resource "docker_container" "brooch" {
     ])
 
     networks_advanced {
-        name = docker_network.brooch
+        name = docker_network.brooch.name
     }
 }
