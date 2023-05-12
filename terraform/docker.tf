@@ -14,4 +14,10 @@ resource "docker_container" "brooch" {
     name = var.docker_container_name
     image = docker_image.brooch.image_id
     restart = "unless-stopped"
+
+    env = {
+        STRATZ_JWT = var.stratz_jwt
+        DISCORD_WEBHOOK_URL = var.discord_webhook_url
+        FOLLOWED_GUILD_ID = var.dota_followed_guild_id
+    }
 }
