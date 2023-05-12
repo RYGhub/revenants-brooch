@@ -16,8 +16,8 @@ resource "docker_container" "brooch" {
     restart = "unless-stopped"
 
     env = toset([
-        "STRATZ_JWT=var.stratz_jwt",
-        "DISCORD_WEBHOOK_URL=var.discord_webhook_url",
-        "FOLLOWED_GUILD_ID=var.dota_followed_guild_id",
+        "STRATZ_JWT=${var.stratz_jwt}",
+        "DISCORD_WEBHOOK_URL=${var.discord_webhook_url}",
+        "FOLLOWED_GUILD_ID=${var.dota_followed_guild_id}",
     ])
 }
