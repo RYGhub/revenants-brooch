@@ -120,7 +120,7 @@ async fn match_announce(current_match_id: &mut i64, client: &webhook::client::We
     trace!("Ensuring the end date time exists...");
     let end = match_.end_date_time.ok_or_else(|| RefreshError::Data)?;
     let end = i64::try_from(end).map_err(|_| RefreshError::Data)?;
-    let end = chrono::NaiveDateTime::from_timestamp(end, 0);
+    let end = chrono::NaiveDateTime::from_timestamp_opt(end, 0).expect("timestamp to be valid");
     let end = chrono::DateTime::<chrono::Utc>::from_utc(end, chrono::Utc);
 
     trace!("Determining duration string...");
