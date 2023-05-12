@@ -10,6 +10,11 @@ resource "docker_image" "brooch" {
     ]
 }
 
+resource "docker_network" "brooch" {
+    name = var.docker_network_name
+}
+
+
 resource "docker_container" "brooch" {
     name = var.docker_container_name
     image = docker_image.brooch.image_id
@@ -20,4 +25,8 @@ resource "docker_container" "brooch" {
         "DISCORD_WEBHOOK_URL=${var.discord_webhook_url}",
         "FOLLOWED_GUILD_ID=${var.dota_followed_guild_id}",
     ])
+
+    networks_advanced {
+        name = docker_network.brooch
+    }
 }

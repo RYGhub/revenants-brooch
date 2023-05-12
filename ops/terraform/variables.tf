@@ -4,6 +4,12 @@ variable "docker_container_name" {
     nullable    = false
 }
 
+variable "docker_network_name" {
+    type        = string
+    description = "Name of the network to create"
+    nullable    = false
+}
+
 variable "stratz_jwt" {
     type        = string
     description = "Stratz JSON Web Token <https://stratz.com/api>"
