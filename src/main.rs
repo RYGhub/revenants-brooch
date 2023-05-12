@@ -411,6 +411,7 @@ fn render_player(player: stratz::Player) -> Result<String, RefreshError> {
         135 => "<:dawnbreaker:958251187608645633>",
         136 => "<:marci:958254609397334026>",
         137 => "<:primal_beast:958254609397342258>",
+        138 => "<:muerta:1106405477186801674>",
         _ => ":grey_question:",
     };
 
